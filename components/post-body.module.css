@@ -74,3 +74,7 @@
 .content audio {
   @apply w-full;
 }
+
+.blue-list {
+  color: blue;
+}

@@ -12,12 +12,32 @@ const { protocol, hostname, port, pathname } = new URL(
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
+
     remotePatterns: [
       {
         protocol: protocol.slice(0, -1),
         hostname,
         port,
         pathname: `${pathname}/**`,
+      },
+      {
+        // The `src` property hostname must end with `.example.com`,
+        // otherwise the API will respond with 400 Bad Request.
+        protocol: 'http',
+        hostname: '**.gravatar.com',
+      },
+      {
+        // The `src` property hostname must end with `.example.com`,
+        // otherwise the API will respond with 400 Bad Request.
+        protocol: 'https',
+        hostname: '**.gravatar.com',
+      },
+
+      {
+        // The `src` property hostname must end with `.example.com`,
+        // otherwise the API will respond with 400 Bad Request.
+        protocol: 'http',
+        hostname: 'localhost',
       },
     ],
   },
